@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import './index.css'
+const App = () => {
 
-function App() {
+const [diceNumber, setDiceNumber]=useState(1);
+const rollDice = () => {
+  const x = Math.floor(Math.random() * 6) + 1;
+  setDiceNumber(x);
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+   <center>  <img width={300} height={300} src={require(`./assets/${diceNumber}.png`)}></img>
+   <br/>
+   <button onClick={()=>rollDice()} className='button'>Roll</button>
+   
+   
+   
+   </center>
     </div>
   );
 }
